@@ -3,8 +3,10 @@ package tariq.mahmood.firebaseauth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail,etPasswrod;
     CircularProgressButton btLogin;
-
+    TextView tvForget;
     FirebaseAuth mAuth;
 
     @Override
@@ -37,7 +39,15 @@ public class LoginActivity extends AppCompatActivity {
         etEmail=findViewById(R.id.editTextEmail);
         etPasswrod=findViewById(R.id.editTextPassword);
         btLogin=findViewById(R.id.cirLoginButton);
+        tvForget= findViewById(R.id.tvforget);
 
+        tvForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(LoginActivity.this,ForgetActivity.class);
+                startActivity(i);
+            }
+        });
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
